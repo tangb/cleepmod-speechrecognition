@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from raspiot.formatters.formatter import Formatter
+from raspiot.events.formatter import Formatter
+from raspiot.events.speechRecognitionHotwordProfile import SpeechRecognitionHotwordProfile
 
-__all__ = [u'SpeechRecognitionHotwordDetectedFormatter']
-
-class SpeechRecognitionHotwordDetectedFormatter(Formatter):
+class SpeechRecognitionHotwordDetectedToSpeechRecognitionHotwordFormatter(Formatter):
     """
     SpeechRecognition hotword detected to SpeechRecognitionHotwordProfile
     """

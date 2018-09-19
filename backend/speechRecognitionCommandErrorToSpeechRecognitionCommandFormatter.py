@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from raspiot.formatters.formatter import Formatter
+from raspiot.events.formatter import Formatter
+from raspiot.events.speechRecognitionCommandProfile import SpeechRecognitionCommandProfile
 
-__all__ = [u'SpeechRecognitionCommandErrorFormatter']
-
-class SpeechRecognitionCommandErrorFormatter(Formatter):
+class SpeechRecognitionCommandErrorToSpeechRecognitionCommandFormatter(Formatter):
     """
     SpeechRecognition command error to SpeechRecognitionCommandProfile
     """
