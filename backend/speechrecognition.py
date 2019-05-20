@@ -166,12 +166,12 @@ class SpeechRecognitionProcess(Thread):
         finally:
             #release hotword
             self.hotword_released_event.send()
-            self.hotword_released_event.render(u'leds')
+            self.hotword_released_event.render()
 
         #check audio
         if not audio:
             self.command_error_event.send()
-            self.command_error_event.render(u'leds')
+            self.command_error_event.render()
             self.logger.debug(u'No audio recorded')
             return
 
@@ -183,20 +183,20 @@ class SpeechRecognitionProcess(Thread):
 
         except speechrecognition.UnknownValueError:
             self.command_error_event.send()
-            self.command_error_event.render(u'leds')
+            self.command_error_event.render()
             self.logger.warning(u'STT provider doesn\'t understand audio')
             return
 
         except speechrecognition.RequestError as e:
             self.command_error_event.send()
-            self.command_error_event.render(u'leds')
+            self.command_error_event.render()
             self.logger.error(u'STT provider service seems to be unreachable: %s' % str(e))
             return
 
         #check command
         if not command:
             self.command_error_event.send()
-            self.command_error_event.render(u'leds')
+            self.command_error_event.render()
             self.logger.debug(u'No command recognized')
             return
 
@@ -224,7 +224,7 @@ class SpeechRecognitionProcess(Thread):
             #send hotword test only to rpc during tests
             self.hotword_detected_event.send(to=u'rpc')
         else:
-            self.hotword_detected_event.render(u'leds')
+            self.hotword_detected_event.render()
             self.hotword_detected_event.send()
 
     def run(self):
@@ -461,7 +461,6 @@ class Speechrecognition(RaspIotResource):
     MODULE_PRICE = 0
     MODULE_DEPS = []
     MODULE_DESCRIPTION = u'Control your device using voice'
-    MODULE_LOCKED = False
     MODULE_TAGS = [u'audio', u'speech', u'stt', 'speechtotext']
     MODULE_COUNTRY = None
     MODULE_URLINFO = None
