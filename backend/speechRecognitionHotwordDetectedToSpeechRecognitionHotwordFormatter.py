@@ -8,14 +8,14 @@ class SpeechRecognitionHotwordDetectedToSpeechRecognitionHotwordFormatter(Format
     """
     SpeechRecognition hotword detected to SpeechRecognitionHotwordProfile
     """
-    def __init__(self, events_factory):
+    def __init__(self, events_broker):
         """
         Constuctor
 
         Args:
-            events_factory (EventsFactory): events factory instance
+            events_broker (EventsBroker): events broker instance
         """
-        Formatter.__init__(self, events_factory, u'speechrecognition.hotword.detected', SpeechRecognitionHotwordProfile())
+        Formatter.__init__(self, events_broker, u'speechrecognition.hotword.detected', SpeechRecognitionHotwordProfile())
 
     def _fill_profile(self, event_values, profile):
         """

@@ -8,14 +8,14 @@ class SpeechRecognitionCommandErrorToSpeechRecognitionCommandFormatter(Formatter
     """
     SpeechRecognition command error to SpeechRecognitionCommandProfile
     """
-    def __init__(self, events_factory):
+    def __init__(self, events_broker):
         """
         Constuctor
 
         Args:
-            events_factory (EventsFactory): events factory instance
+            events_broker (EventsBroker): events broker instance
         """
-        Formatter.__init__(self, events_factory, u'speechrecognition.command.error', SpeechRecognitionCommandProfile())
+        Formatter.__init__(self, events_broker, u'speechrecognition.command.error', SpeechRecognitionCommandProfile())
 
     def _fill_profile(self, event_values, profile):
         """
