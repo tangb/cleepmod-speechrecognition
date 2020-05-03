@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from raspiot.events.formatter import Formatter
-from raspiot.events.speechRecognitionCommandProfile import SpeechRecognitionCommandProfile
+from raspiot.libs.internals.formatter import Formatter
+from raspiot.profiles.speechRecognitionCommandProfile import SpeechRecognitionCommandProfile
 
 class SpeechRecognitionCommandErrorToSpeechRecognitionCommandFormatter(Formatter):
     """
